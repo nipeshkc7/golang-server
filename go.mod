@@ -1,3 +1,3 @@
-module example.com/index
+module example.com/service
 
 go 1.16
