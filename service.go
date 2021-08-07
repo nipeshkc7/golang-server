@@ -46,6 +46,7 @@ func deleteEvent() {
 func handleRequests() {
 	http.HandleFunc("/", ping)
 	http.HandleFunc("/getAllEvents", getAllEvents)
+	fmt.Println("Starting app on PORT:" + PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
 
