@@ -7,6 +7,8 @@ import (
 	"net/http"
 )
 
+const PORT = "8080"
+
 type Event struct {
 	Id          string `json:"id"`
 	Name        string `json:"name"`
@@ -44,7 +46,7 @@ func deleteEvent() {
 func handleRequests() {
 	http.HandleFunc("/", ping)
 	http.HandleFunc("/getAllEvents", getAllEvents)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
 
 func main() {
