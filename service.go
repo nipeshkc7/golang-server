@@ -46,16 +46,6 @@ func event(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func createEvent() {
-
-}
-
-func deleteEvent() {
-
-}
-
-// TODO: Add APIS to send messages
-
 func handleRequests() {
 	http.HandleFunc("/ping", ping)
 	http.HandleFunc("/getAllEvents", getAllEvents)
