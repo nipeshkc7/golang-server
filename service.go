@@ -17,10 +17,10 @@ type Event struct {
 }
 
 var events = []Event{
-	Event{Id: "111", Name: "birthday", Desc: "jimmy's birthday", PhoneNumber: "+61416918059"},
-	Event{Id: "112", Name: "anniversary", Desc: "jimmy's anniversary", PhoneNumber: "+61416918059"},
-	Event{Id: "113", Name: "xmas", Desc: "Xmas", PhoneNumber: "+61416918059"},
-	Event{Id: "114", Name: "custom", Desc: "custom event", PhoneNumber: "+61416918059"},
+	{Id: "111", Name: "birthday", Desc: "jimmy's birthday", PhoneNumber: "+61416918059"},
+	{Id: "112", Name: "anniversary", Desc: "jimmy's anniversary", PhoneNumber: "+61416918059"},
+	{Id: "113", Name: "xmas", Desc: "Xmas", PhoneNumber: "+61416918059"},
+	{Id: "114", Name: "custom", Desc: "custom event", PhoneNumber: "+61416918059"},
 }
 
 func ping(w http.ResponseWriter, r *http.Request) {
