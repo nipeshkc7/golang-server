@@ -33,6 +33,19 @@ func getAllEvents(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(events)
 }
 
+func event(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Events")
+
+	switch r.Method {
+	case "GET":
+		fmt.Println("GET: Events")
+	case "POST":
+		fmt.Println("POST: Event")
+	default:
+		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
+	}
+}
+
 func createEvent() {
 
 }
@@ -44,8 +57,10 @@ func deleteEvent() {
 // TODO: Add APIS to send messages
 
 func handleRequests() {
-	http.HandleFunc("/", ping)
+	http.HandleFunc("/ping", ping)
 	http.HandleFunc("/getAllEvents", getAllEvents)
+	http.HandleFunc("/events", event)
+
 	fmt.Println("Starting app on PORT:" + PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
