@@ -48,13 +48,13 @@ func event(w http.ResponseWriter, r *http.Request) {
       return
     }
 
-    b, err := json.MarshalIndent(e, "", "  ")
+    prettyEvent, err := json.MarshalIndent(e, "", "  ")
     if err != nil {
       fmt.Println(err)
     }
 
-    fmt.Println(string(b));
-    fmt.Fprintf(w, "Person: %+v", string(b))
+    fmt.Println(string(prettyEvent));
+    fmt.Fprintf(w, "Person: %+v", string(prettyEvent))
 	default:
 		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
