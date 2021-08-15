@@ -41,6 +41,20 @@ func event(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("GET: Events")
 	case "POST":
 		fmt.Println("POST: Event")
+    var e Event
+    err := json.NewDecoder(r.Body).Decode(&e)
+    if err!= nil {
+      http.Error(w, err.Error(), http.StatusBadRequest)
+      return
+    }
+
+    b, err := json.MarshalIndent(e, "", "  ")
+    if err != nil {
+      fmt.Println(err)
+    }
+
+    fmt.Println(string(b));
+    fmt.Fprintf(w, "Person: %+v", string(b))
 	default:
 		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
